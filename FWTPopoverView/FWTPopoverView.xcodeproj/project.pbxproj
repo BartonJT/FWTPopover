@@ -15,6 +15,10 @@
 		A94900CA1641948700864A8B /* FWTPopoverArrow.m in Sources */ = {isa = PBXBuildFile; fileRef = A94900C41641948700864A8B /* FWTPopoverArrow.m */; };
 		A94900CB1641948700864A8B /* FWTPopoverBackgroundHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A94900C61641948700864A8B /* FWTPopoverBackgroundHelper.m */; };
 		A94900CC1641948700864A8B /* FWTPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = A94900C81641948700864A8B /* FWTPopoverView.m */; };
+		FD45829A17EC299200663184 /* FWTPopoverView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A94900C71641948700864A8B /* FWTPopoverView.h */; };
+		FD45829B17EC299C00663184 /* FWTPopoverBackgroundHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A94900C51641948700864A8B /* FWTPopoverBackgroundHelper.h */; };
+		FD45829C17EC299C00663184 /* FWTPopoverAnimationHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A94900C11641948700864A8B /* FWTPopoverAnimationHelper.h */; };
+		FD45829D17EC299C00663184 /* FWTPopoverArrow.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A94900C31641948700864A8B /* FWTPopoverArrow.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,6 +28,10 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				FD45829B17EC299C00663184 /* FWTPopoverBackgroundHelper.h in CopyFiles */,
+				FD45829C17EC299C00663184 /* FWTPopoverAnimationHelper.h in CopyFiles */,
+				FD45829D17EC299C00663184 /* FWTPopoverArrow.h in CopyFiles */,
+				FD45829A17EC299200663184 /* FWTPopoverView.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
