@@ -21,7 +21,7 @@
 @implementation FWTPopoverArrow
 @synthesize direction = _direction;
 
-- (id)init
+- (instancetype) init
 {
     if ((self = [super init]))
     {
@@ -33,7 +33,7 @@
     return self;
 }
 
-- (UIEdgeInsets)adjustedEdgeInsetsForEdgeInsets:(UIEdgeInsets)edgeInsets
+- (UIEdgeInsets) adjustedEdgeInsetsForEdgeInsets:(UIEdgeInsets)edgeInsets
 {
     UIEdgeInsets adjustedEdgeInsets = edgeInsets;
     CGFloat dY = self.size.height;

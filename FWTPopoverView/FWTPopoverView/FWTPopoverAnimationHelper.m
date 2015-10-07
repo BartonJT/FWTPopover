@@ -23,7 +23,7 @@
 
 @implementation FWTPopoverAnimationHelper
 
-- (void)dealloc
+- (void) dealloc
 {
     self.prepareBlock = nil;
     self.presentAnimationsBlock = nil;
@@ -34,7 +34,7 @@
     [super dealloc];
 }
 
-- (id)initWithAnnotationView:(FWTPopoverView *)annotationView
+- (instancetype) initWithAnnotationView:(FWTPopoverView *)annotationView
 {
     if ((self = [super init]))
     {
@@ -58,12 +58,12 @@
     return self;
 }
 
-- (void)safePerformBlock:(void (^)(void))block
+- (void) safePerformBlock:(void (^)(void))block
 {
     if (block) block();
 }
 
-- (void)safePerformCompletionBlock:(void (^)(BOOL finished))block finished:(BOOL)finished;
+- (void) safePerformCompletionBlock:(void (^)(BOOL finished))block finished:(BOOL)finished;
 {
     if (block) block(finished);
 }

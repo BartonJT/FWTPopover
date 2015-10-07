@@ -19,10 +19,10 @@ typedef void (^FWTAnnotationViewDrawBezierPathBlock)(FWTPopoverBackgroundHelper 
 @property (nonatomic, copy) FWTAnnotationViewDrawBezierPathBlock drawPathBlock;
 @property (nonatomic, readonly, assign) CGRect pathFrame;
 
-- (id)initWithAnnotationView:(FWTPopoverView *)annotationView;
+- (instancetype) initWithAnnotationView:(FWTPopoverView *)annotationView;
 
-- (UIImage *)resizableBackgroundImageForSize:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets;
+- (UIImage *) resizableBackgroundImageForSize:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets;
 
-- (UIBezierPath *)bezierPathForRect:(CGRect)rect;
+- (UIBezierPath *) bezierPathForRect:(CGRect)rect;
 
 @end

@@ -32,13 +32,13 @@ typedef NSUInteger AxisType;
 
 @implementation FWTPopoverBackgroundHelper
 
-- (void)dealloc
+- (void) dealloc
 {
     self.annotationView = nil;
     [super dealloc];
 }
 
-- (id)initWithAnnotationView:(FWTPopoverView *)annotationView
+- (instancetype) initWithAnnotationView:(FWTPopoverView *)annotationView
 {
     if ((self = [super init]))
     {
@@ -65,7 +65,7 @@ typedef NSUInteger AxisType;
     return self;
 }
 
-- (UIImage *)resizableBackgroundImageForSize:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets
+- (UIImage *) resizableBackgroundImageForSize:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets
 {
     //
     CGFloat radius = self.cornerRadius;
@@ -99,7 +99,7 @@ typedef NSUInteger AxisType;
     return [image resizableImageWithCapInsets:capInsets];
 }
 
-- (UIBezierPath *)bezierPathForRect:(CGRect)rect
+- (UIBezierPath *) bezierPathForRect:(CGRect)rect
 {
     CGFloat radius = self.cornerRadius;
     
