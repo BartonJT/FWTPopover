@@ -18,59 +18,61 @@ CGFloat(^FWTRandomFloat)(CGFloat, CGFloat) = ^(CGFloat lowerBound, CGFloat upper
 @property (nonatomic, retain) FWTPopoverView *popoverView;
 @property (nonatomic, retain) UIView *touchPointView;
 @property (nonatomic, assign) FWTPopoverArrowDirection popoverArrowDirection;
-@property (nonatomic, assign) BOOL manyPopoversEnabled;
+@property (nonatomic, retain) UISegmentedControl *segmentedControl;
 @end
 
 @implementation ViewController
-@synthesize popoverArrowDirection = _popoverArrowDirection;
-@synthesize touchPointView = _touchPointView;
 
 - (void)dealloc
 {
+    self.segmentedControl = nil;
     self.touchPointView = nil;
     self.popoverView = nil;
     [super dealloc];
-}
-
-- (id)init
-{
-    if ((self = [super init]))
-    {
-        //  add a switch to toggle from one to many popover at the same time
-        //
-        UISwitch *manyPopoversSwitch = [[[UISwitch alloc] init] autorelease];
-        [manyPopoversSwitch addTarget:self action:@selector(_manyPopoverSwitchValueChanged:) forControlEvents:UIControlEventValueChanged];
-        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:manyPopoversSwitch] autorelease];
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
-                                                                                                target:self
-                                                                                                action:@selector(_didPressRightBarButton:)] autorelease];
-    }
-    
-    return self;
 }
 
 - (void)loadView
 {
     [super loadView];
     
-    //
-    self.view.backgroundColor = [UIColor colorWithWhite:.91f alpha:.25f];
+    if (self.manyPopoversEnabled)
+    {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.bounds = (CGRect){.0f, .0f, 32.0f, 32.0f};
+        [button setImage:[UIImage imageNamed:@"button_trash.png"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(_didPressRightBarButton:) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+    }
     
     self.popoverArrowDirection = pow(2, 0); //  store the selected arrow type
-    
-    //  allow to change arrow type
-    UISegmentedControl *segmentedControl = [[[UISegmentedControl alloc] initWithItems:@[@"N", @"U", @"D", @"L", @"R"]] autorelease];
-    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-    segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [segmentedControl addTarget:self action:@selector(_valueChangedForSegmentedControl:) forControlEvents:UIControlEventValueChanged];
-    segmentedControl.selectedSegmentIndex = log2(self.popoverArrowDirection);
-    [segmentedControl sizeToFit];
-    self.navigationItem.titleView = segmentedControl;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+- (void)viewDidAppear:(BOOL)animated
 {
-    return YES;
+    [super viewDidAppear:animated];
+    
+    CGRect bounds = self.navigationController.toolbar.bounds;
+    self.segmentedControl.center = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
+    [self.navigationController.toolbar addSubview:self.segmentedControl];
+    
+    [self.navigationController setToolbarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController setToolbarHidden:YES animated:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [self.popoverView removeFromSuperview];
+    self.popoverView = nil;
+    
+    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
 
 #pragma mark - Getters
@@ -85,6 +87,21 @@ CGFloat(^FWTRandomFloat)(CGFloat, CGFloat) = ^(CGFloat lowerBound, CGFloat upper
     }
     
     return self->_touchPointView;
+}
+
+- (UISegmentedControl *)segmentedControl
+{
+    if (!self->_segmentedControl)
+    {
+        self->_segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"N", @"U", @"D", @"L", @"R"]];
+        self->_segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+        self->_segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        [self->_segmentedControl addTarget:self action:@selector(_valueChangedForSegmentedControl:) forControlEvents:UIControlEventValueChanged];
+        self->_segmentedControl.selectedSegmentIndex = log2(self.popoverArrowDirection);
+        [self->_segmentedControl sizeToFit];
+    }
+    
+    return self->_segmentedControl;
 }
 
 #pragma mark - Actions
@@ -102,17 +119,12 @@ CGFloat(^FWTRandomFloat)(CGFloat, CGFloat) = ^(CGFloat lowerBound, CGFloat upper
     }];
 }
 
-- (void)_manyPopoverSwitchValueChanged:(UISwitch *)theSwitch
-{
-    self.manyPopoversEnabled = theSwitch.on;
-}
-
 #pragma mark - UIResponder
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     //
     CGPoint point = [[touches anyObject] locationInView:self.view];
-
+    
     //
     if (!self.popoverView || self.manyPopoversEnabled)
     {
@@ -120,7 +132,7 @@ CGFloat(^FWTRandomFloat)(CGFloat, CGFloat) = ^(CGFloat lowerBound, CGFloat upper
         self.popoverView.contentSize = CGSizeMake(self.popoverView.contentSize.width, ((int)FWTRandomFloat(60, 100))); // random height
         __block typeof(self) myself = self;
         self.popoverView.didDismissBlock = ^(FWTPopoverView *av){ myself.popoverView = nil; }; // release
-        CGColorRef fillColor = self.manyPopoversEnabled ? [self _pleaseGiveMeARandomColor].CGColor : self.popoverView.backgroundHelper.fillColor;        
+        CGColorRef fillColor = self.manyPopoversEnabled ? [self _pleaseGiveMeARandomColor].CGColor : self.popoverView.backgroundHelper.fillColor;
         self.popoverView.backgroundHelper.fillColor = fillColor; // random color if many popover at the same time is enabled
         [self.popoverView presentFromRect:CGRectMake(point.x, point.y, 1.0f, 1.0f)
                                    inView:self.view

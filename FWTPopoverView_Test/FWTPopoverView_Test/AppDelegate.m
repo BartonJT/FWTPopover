@@ -20,9 +20,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    self.window.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
-    UIViewController *vc = [[[ViewController alloc] init] autorelease];
-    self.window.rootViewController = [[[UINavigationController alloc] initWithRootViewController:vc] autorelease];
+    self.window.backgroundColor = [UIColor whiteColor];
+
+    ViewController *defaultVC = [[[ViewController alloc] init] autorelease];
+    ViewController *manyVC = [[[ViewController alloc] init] autorelease];
+    manyVC.manyPopoversEnabled = YES;
+    
+    NSArray *samples = @[[RistrettoSampleDescriptor descriptorWithTitle:@"Default" instance:defaultVC],
+                         [RistrettoSampleDescriptor descriptorWithTitle:@"Custom - Multiples" instance:manyVC],
+                         ];
+    
+    RistrettoTableViewController *rootViewController = [[[RistrettoTableViewController alloc] init] autorelease];
+    rootViewController.items = samples;
+    self.window.rootViewController = [UINavigationController Ristretto_navigationControllerWithRootViewController:rootViewController
+                                                                                             defaultHeaderEnabled:YES];
     [self.window makeKeyAndVisible];
     return YES;
 }
