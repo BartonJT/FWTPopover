@@ -23,9 +23,9 @@ typedef void (^FWTAnnotationAnimationCompletionBlock)(BOOL finished);
 @property (nonatomic, copy) FWTAnnotationAnimationChangesBlock presentAnimationsBlock, dismissAnimationsBlock;
 @property (nonatomic, copy) FWTAnnotationAnimationCompletionBlock presentCompletionBlock, dismissCompletionBlock;
 
-- (id)initWithAnnotationView:(FWTPopoverView *)annotationView;
+- (instancetype) initWithAnnotationView:(FWTPopoverView *)annotationView;
 
-- (void)safePerformBlock:(void (^)(void))block;
-- (void)safePerformCompletionBlock:(void (^)(BOOL finished))block finished:(BOOL)finished;
+- (void) safePerformBlock:(void (^)(void))block;
+- (void) safePerformCompletionBlock:(void (^)(BOOL finished))block finished:(BOOL)finished;
 
 @end

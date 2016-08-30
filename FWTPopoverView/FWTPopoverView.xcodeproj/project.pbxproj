@@ -15,6 +15,10 @@
 		A94900CA1641948700864A8B /* FWTPopoverArrow.m in Sources */ = {isa = PBXBuildFile; fileRef = A94900C41641948700864A8B /* FWTPopoverArrow.m */; };
 		A94900CB1641948700864A8B /* FWTPopoverBackgroundHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A94900C61641948700864A8B /* FWTPopoverBackgroundHelper.m */; };
 		A94900CC1641948700864A8B /* FWTPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = A94900C81641948700864A8B /* FWTPopoverView.m */; };
+		FD45829A17EC299200663184 /* FWTPopoverView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A94900C71641948700864A8B /* FWTPopoverView.h */; };
+		FD45829B17EC299C00663184 /* FWTPopoverBackgroundHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A94900C51641948700864A8B /* FWTPopoverBackgroundHelper.h */; };
+		FD45829C17EC299C00663184 /* FWTPopoverAnimationHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A94900C11641948700864A8B /* FWTPopoverAnimationHelper.h */; };
+		FD45829D17EC299C00663184 /* FWTPopoverArrow.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A94900C31641948700864A8B /* FWTPopoverArrow.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,6 +28,10 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				FD45829B17EC299C00663184 /* FWTPopoverBackgroundHelper.h in CopyFiles */,
+				FD45829C17EC299C00663184 /* FWTPopoverAnimationHelper.h in CopyFiles */,
+				FD45829D17EC299C00663184 /* FWTPopoverArrow.h in CopyFiles */,
+				FD45829A17EC299200663184 /* FWTPopoverView.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,7 +155,7 @@
 		A94900A11641942800864A8B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Marco Meschini";
 			};
 			buildConfigurationList = A94900A41641942800864A8B /* Build configuration list for PBXProject "FWTPopoverView" */;
@@ -191,6 +199,7 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -203,6 +212,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -232,6 +242,7 @@
 				DSTROOT = /tmp/FWTPopoverView.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FWTPopoverView/FWTPopoverView-Prefix.pch";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -250,6 +261,37 @@
 			};
 			name = Release;
 		};
+		FDF141D1180642E900AA5354 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		FDF141D2180642E900AA5354 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/FWTPopoverView.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FWTPopoverView/FWTPopoverView-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Distribution;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -258,6 +300,7 @@
 			buildConfigurations = (
 				A94900B61641942800864A8B /* Debug */,
 				A94900B71641942800864A8B /* Release */,
+				FDF141D1180642E900AA5354 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -267,6 +310,7 @@
 			buildConfigurations = (
 				A94900B91641942800864A8B /* Debug */,
 				A94900BA1641942800864A8B /* Release */,
+				FDF141D2180642E900AA5354 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -51,7 +51,7 @@ struct FWTPopoverViewFrameAndArrowAdjustment
     [super dealloc];
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     if ((self = [super initWithFrame:frame]))
     {        
@@ -127,7 +127,7 @@ struct FWTPopoverViewFrameAndArrowAdjustment
         maxArrowOffset = availableHalfRectSize.height - self.arrow.size.width / 2.0f;
     }
     
-    if (abs(arrowOffset) > maxArrowOffset)
+    if (fabs(arrowOffset) > maxArrowOffset)
         arrowOffset = (arrowOffset > 0) ? maxArrowOffset : -maxArrowOffset;
     
     return arrowOffset;
