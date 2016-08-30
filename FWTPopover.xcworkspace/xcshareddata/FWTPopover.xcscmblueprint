@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0697CEB1970717F04AD05ADE8B8D58B9BEA93EC1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B7CD861F4D02480618C62C55E3503326485FC52B" : 0,
+    "0697CEB1970717F04AD05ADE8B8D58B9BEA93EC1" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CA115523-5786-4AB1-A70E-7B5FCCDC6616",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B7CD861F4D02480618C62C55E3503326485FC52B" : "FWTPopoverOld\/RistrettoUI\/",
+    "0697CEB1970717F04AD05ADE8B8D58B9BEA93EC1" : "FWTPopoverOld\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FWTPopover",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FWTPopover.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/FutureWorkshops\/FWTPopover.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0697CEB1970717F04AD05ADE8B8D58B9BEA93EC1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:marciomeschini\/RistrettoUI.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B7CD861F4D02480618C62C55E3503326485FC52B"
+    }
+  ]
+}
