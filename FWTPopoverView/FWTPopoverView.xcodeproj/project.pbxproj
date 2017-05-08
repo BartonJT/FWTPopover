@@ -261,7 +261,7 @@
 			};
 			name = Release;
 		};
-		FDF141D1180642E900AA5354 /* Distribution */ = {
+		FDF141D1180642E900AA5354 /* Profile */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -278,9 +278,9 @@
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Distribution;
+			name = Profile;
 		};
-		FDF141D2180642E900AA5354 /* Distribution */ = {
+		FDF141D2180642E900AA5354 /* Profile */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/FWTPopoverView.dst;
@@ -290,7 +290,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
-			name = Distribution;
+			name = Profile;
 		};
 /* End XCBuildConfiguration section */
 
@@ -300,7 +300,7 @@
 			buildConfigurations = (
 				A94900B61641942800864A8B /* Debug */,
 				A94900B71641942800864A8B /* Release */,
-				FDF141D1180642E900AA5354 /* Distribution */,
+				FDF141D1180642E900AA5354 /* Profile */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -310,7 +310,7 @@
 			buildConfigurations = (
 				A94900B91641942800864A8B /* Debug */,
 				A94900BA1641942800864A8B /* Release */,
-				FDF141D2180642E900AA5354 /* Distribution */,
+				FDF141D2180642E900AA5354 /* Profile */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
