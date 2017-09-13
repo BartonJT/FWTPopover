@@ -35,6 +35,8 @@ typedef NSUInteger AxisType;
 - (void) dealloc
 {
     self.annotationView = nil;
+    self.drawPathBlock = nil;
+    
     [super dealloc];
 }
 
